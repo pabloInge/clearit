@@ -6,6 +6,7 @@ use App\Http\Requests\StoreTicketNotificationRequest;
 use App\Models\Notification;
 use App\Models\Ticket;
 use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class TicketNotificationController extends Controller
 {
@@ -24,6 +25,6 @@ class TicketNotificationController extends Controller
             'message' => $request->message,
         ]);
 
-        return response()->json($notification);
+        return response()->json(data: $notification, status: Response::HTTP_CREATED);
     }
 }

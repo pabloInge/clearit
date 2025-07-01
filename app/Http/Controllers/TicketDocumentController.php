@@ -6,6 +6,7 @@ use App\Http\Requests\StoreTicketDocumentRequest;
 use App\Models\Notification;
 use App\Models\Ticket;
 use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class TicketDocumentController extends Controller
 {
@@ -23,6 +24,6 @@ class TicketDocumentController extends Controller
             'message' => "Documents updated for ticket with id {$ticket->id} by user {$user->email}",
         ]);
 
-        return response()->json($ticket->documents->toArray());
+        return response()->json(data: $ticket->documents, status: Response::HTTP_CREATED);
     }
 }

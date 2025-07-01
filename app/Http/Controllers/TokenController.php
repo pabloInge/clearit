@@ -15,9 +15,12 @@ class TokenController extends Controller
         $user = User::query()->where('email', $request->email)->first();
 
         if (! $user || ! Hash::check($request->password, $user->password)) {
-            return response()->json(['error' => 'Invalid credentials'], Response::HTTP_UNAUTHORIZED);
+            return response()->json(data: ['error' => 'Invalid credentials'], status: Response::HTTP_UNAUTHORIZED);
         }
 
-        return response()->json(['token' => $user->createToken('api-token')->plainTextToken]);
+        return response()->json(
+            data: ['token' => $user->createToken('api-token')->plainTextToken],
+            status: Response::HTTP_CREATED
+        );
     }
 }
