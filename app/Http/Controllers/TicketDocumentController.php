@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTicketDocumentRequest;
+use App\Models\Notification;
 use App\Models\Ticket;
 use Illuminate\Http\JsonResponse;
 
@@ -15,6 +16,13 @@ class TicketDocumentController extends Controller
             $ticket->documents()->create(['file_path' => $file_path]);
         }
 
-        return response()->json($ticket->documents()->get()->toArray());
+        $user = $request->user();
+        $user->notifications()->create([
+            'ticket_id' => $ticket->id,
+            'title' => Notification::UPDATED_DOCUMENTS,
+            'message' => "Documents updated for ticket with id {$ticket->id} by user {$user->email}",
+        ]);
+
+        return response()->json($ticket->documents->toArray());
     }
 }
