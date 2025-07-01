@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TicketDocumentController;
 use App\Http\Controllers\TokenController;
@@ -15,4 +16,6 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('{ticket}/documents', [TicketDocumentController::class, 'store'])
             ->can(Permission::STORE_TICKET_DOCUMENT);
     });
+
+    Route::get('documents/{document}', [DocumentController::class, 'show'])->can(Permission::SHOW_DOCUMENT);
 });

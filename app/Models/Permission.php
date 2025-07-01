@@ -11,4 +11,6 @@ class Permission extends SpatiePermission
     public const STORE_TICKET_DOCUMENT = 'store ticket document';
 
     public const SHOW_TICKET = 'show ticket';
+
+    public const SHOW_DOCUMENT = 'show document';
 }
