@@ -19,6 +19,7 @@ class RoleSeeder extends Seeder
         $agent_role->givePermissionTo(
             Permission::SHOW_TICKET,
             Permission::SHOW_DOCUMENT,
+            Permission::STORE_TICKET_NOTIFICATION,
         );
         $user_role->givePermissionTo(
             Permission::STORE_TICKET,

@@ -12,6 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 /**
  * @property string $email
+ * @property int $id
  */
 class User extends Authenticatable
 {
