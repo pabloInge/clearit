@@ -20,6 +20,7 @@ class Ticket extends Model
         'transport_mode',
         'product',
         'country',
+        'status',
     ];
 
     public function documents(): HasMany

@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @property bool $is_finished
+ * @property string $message
+ */
 class StoreTicketNotificationRequest extends FormRequest
 {
     /**
@@ -23,6 +27,7 @@ class StoreTicketNotificationRequest extends FormRequest
     {
         return [
             'message' => 'required|string',
+            'is_finished' => 'boolean',
         ];
     }
 }

@@ -17,7 +17,7 @@ class Notification extends Model
 
     public const TICKET_IN_PROGRESS = 'new in progress';
 
-    public const NEW_COMPLETED = 'ticket completed';
+    public const TICKET_COMPLETED = 'ticket completed';
 
     public const UPDATED_DOCUMENTS = 'updated documents';
 }
