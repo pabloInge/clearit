@@ -16,6 +16,9 @@ class RoleSeeder extends Seeder
         $agent_role = Role::query()->updateOrCreate(['name' => Role::AGENT]);
         $user_role = Role::query()->updateOrCreate(['name' => Role::USER]);
 
+        $agent_role->givePermissionTo(
+            Permission::SHOW_TICKET,
+        );
         $user_role->givePermissionTo(
             Permission::STORE_TICKET,
             Permission::STORE_TICKET_DOCUMENT,

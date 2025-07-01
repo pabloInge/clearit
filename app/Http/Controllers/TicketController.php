@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTicketRequest;
 use App\Models\Notification;
+use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 
@@ -21,5 +22,10 @@ class TicketController extends Controller
         ]);
 
         return response()->json($ticket->toArray());
+    }
+
+    public function show(Ticket $ticket): JsonResponse
+    {
+        return response()->json($ticket->load('documents')->toArray());
     }
 }

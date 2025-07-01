@@ -15,6 +15,7 @@ class PermissionSeeder extends Seeder
         $permissions = [
             Permission::STORE_TICKET,
             Permission::STORE_TICKET_DOCUMENT,
+            Permission::SHOW_TICKET,
         ];
 
         foreach ($permissions as $permission) {
